@@ -1,0 +1,145 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Nine Men's Morris</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+</head>
+<div class="principal" onload="initializeGame()">
+
+    <div style="display: flex; flex-direction: column;">
+        <div class="header">
+            <span class="turn">Turn : <span id="turn">P1</span></span>
+        </div>
+        <mat-card class="text-center">
+            <input [(ngModel)]="nickname" placeholder="Place a login here">
+            <button (click)="create_game()"> Create a new game</button>
+            <input [(ngModel)]="gameId" id="game_id" placeholder="Paste game id">
+            <button (click)="connectToEspecifGame()">Connect by game id</button>
+            <input [(ngModel)]="XCoord"/>
+            <input [(ngModel)]="YCoord"/>
+            <input [(ngModel)]="XCoordAnt"/>
+            <input [(ngModel)]="YCoordAnt"/>
+            <button (click)="makeAMove()">Jogar</button>
+        </mat-card>
+        <div class="content">
+            <div class="game">
+                <div class="unplaced dpieces">
+                    <div id="dark9" class="piece dark" ></div>
+                    <div id="dark8" class="piece dark" ></div>
+                    <div id="dark7" class="piece dark" ></div>
+                    <div id="dark6" class="piece dark" ></div>
+                    <div id="dark5" class="piece dark" ></div>
+                    <div id="dark4" class="piece dark" ></div>
+                    <div id="dark3" class="piece dark" ></div>
+                    <div id="dark2" class="piece dark" ></div>
+                    <div id="dark1" class="piece dark" ></div>
+                </div>
+                <div class="board" id="board">
+                    <div class="tenant"  id="0_0" x=0 y=0></div>
+                    <div class="tenant"  id="0_1" x=0 y=1></div>
+                    <div class="tenant"  id="0_2" x=0 y=2></div>
+                    <div class="tenant"  id="0_3" x=0 y=3></div>
+                    <div class="tenant"  id="0_4" x=0 y=4></div>
+                    <div class="tenant"  id="0_5" x=0 y=5></div>
+                    <div class="tenant"  id="0_6" x=0 y=6></div>
+                    <div class="tenant"  id="1_0" x=0 y=0></div>
+                    <div class="tenant"  id="1_1" x=1 y=1></div>
+                    <div class="tenant"  id="1_2" x=1 y=2></div>
+                    <div class="tenant"  id="1_3" x=1 y=3></div>
+                    <div class="tenant"  id="1_4" x=1 y=4></div>
+                    <div class="tenant"  id="1_5" x=1 y=5></div>
+                    <div class="tenant"  id="1_6" x=1 y=6></div>
+                    <div class="tenant"  id="2_0" x=2 y=0></div>
+                    <div class="tenant"  id="2_1" x=2 y=1></div>
+                    <div class="tenant"  id="2_2" x=2 y=2></div>
+                    <div class="tenant"  id="2_3" x=2 y=3></div>
+                    <div class="tenant"  id="2_4" x=2 y=4></div>
+                    <div class="tenant"  id="2_5" x=2 y=5></div>
+                    <div class="tenant"  id="2_6" x=2 y=6></div>
+                    <div class="tenant"  id="3_0" x=3 y=0></div>
+                    <div class="tenant"  id="3_1" x=3 y=1></div>
+                    <div class="tenant"  id="3_2" x=3 y=2></div>
+                    <div class="tenant"  id="3_3" x=3 y=3></div>
+                    <div class="tenant"  id="3_4" x=3 y=4></div>
+                    <div class="tenant"  id="3_5" x=3 y=5></div>
+                    <div class="tenant"  id="3_6" x=3 y=6></div>
+                    <div class="tenant"  id="4_0" x=4 y=0></div>
+                    <div class="tenant"  id="4_1" x=4 y=1></div>
+                    <div class="tenant"  id="4_2" x=4 y=2></div>
+                    <div class="tenant"  id="4_3" x=4 y=3></div>
+                    <div class="tenant"  id="4_4" x=4 y=4></div>
+                    <div class="tenant"  id="4_5" x=4 y=5></div>
+                    <div class="tenant"  id="4_6" x=4 y=6></div>
+                    <div class="tenant"  id="5_0" x=5 y=0></div>
+                    <div class="tenant"  id="5_1" x=5 y=1></div>
+                    <div class="tenant"  id="5_2" x=5 y=2></div>
+                    <div class="tenant"  id="5_3" x=5 y=3></div>
+                    <div class="tenant"  id="5_4" x=5 y=4></div>
+                    <div class="tenant"  id="5_5" x=5 y=5></div>
+                    <div class="tenant"  id="5_6" x=5 y=6></div>
+                    <div class="tenant"  id="6_0" x=6 y=0></div>
+                    <div class="tenant"  id="6_1" x=6 y=1></div>
+                    <div class="tenant"  id="6_2" x=6 y=2></div>
+                    <div class="tenant"  id="6_3" x=6 y=3></div>
+                    <div class="tenant"  id="6_4" x=6 y=4></div>
+                    <div class="tenant"  id="6_5" x=6 y=5></div>
+                    <div class="tenant"  id="6_6" x=6 y=6></div>
+                </div>
+                <div class="unplaced dpieces">
+                    <div id="light9" class="piece light" ></div>
+                    <div id="light8" class="piece light" ></div>
+                    <div id="light7" class="piece light" ></div>
+                    <div id="light6" class="piece light" ></div>
+                    <div id="light5" class="piece light" ></div>
+                    <div id="light4" class="piece light" ></div>
+                    <div id="light3" class="piece light" ></div>
+                    <div id="light2" class="piece light" ></div>
+                    <div id="light1" class="piece light" ></div>
+                </div>
+            </div>
+        </div>
+</div>
+    <script>
+        window.addEventListener('mousedown', handleGrab);
+window.addEventListener('mousemove', handleOnPieceMove);
+window.addEventListener('mouseup', handleOnDropPiece);
+
+
+var activePiece = null;
+
+//var activePiece = null as HTMLElement;
+
+function handleGrab(event) {
+    //const element = event.target as HTMLElement;
+    const element = event.target;
+    if(element.classList.contains('piece')) {
+        const x = event.clientX - 25;
+        const y = event.clientY - 25;
+        element.style.position = 'absolute';
+        element.style.left = x + 'px';
+        element.style.top = y +'px';
+
+        activePiece = element;
+
+    }
+}
+
+function handleOnPieceMove(event) {
+
+
+    if(activePiece) {
+        const x = event.clientX - 25;
+        const y = event.clientY - 25;
+        activePiece.style.position = 'absolute';
+        activePiece.style.left = x + 'px';
+        activePiece.style.top = y +'px';       
+    }
+}
+
+function handleOnDropPiece() {
+    if(activePiece) {
+        activePiece = null;
+    }
+}
+    </script>

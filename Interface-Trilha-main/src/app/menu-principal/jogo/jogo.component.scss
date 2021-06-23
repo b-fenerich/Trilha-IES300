@@ -1,0 +1,144 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #95B2F4;
+  z-index: -1;
+}
+
+.center-image {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  width: 42vw;
+  height: 42vw;
+  background-color: #6292FF;
+}
+
+#gameContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.mid {
+  text-align: center;
+  margin: auto;
+}
+
+.header {
+  margin: 10px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.turn {
+  margin-left: 28%;
+  margin-bottom: 1%;
+  float: left;
+}
+
+.message {
+  margin-right: 28%;
+  margin-bottom: 1%;
+  float: right;
+}
+
+.copyright {
+  color: #FFFFFF;
+  margin: auto;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: url("../../../assets/background.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  z-index: -1;
+  margin: auto;
+  background: url("../../../assets/board.svg");
+  background-repeat: no-repeat;
+  border: 1px solid #d3d3d3;
+  background-size: 470px;
+}
+.principal {
+  margin-top: 30px;
+}
+
+.content {
+  display: flex;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  
+}
+
+.board {
+  width: 490px;
+  height: 490px;
+  background-image: url("../../../assets/board.svg");
+  background-repeat: no-repeat;
+  background-size: 470px;
+  display: grid;
+  grid-template-columns: repeat(7, calc(490px/7));
+  grid-template-rows: repeat(7, calc(490px/7));
+  background-position: center;
+}
+
+.tenant {
+  width: calc(490px/7);
+  height:  calc(490px/7);
+  display: flex;
+
+}
+
+.piece {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  border-radius: 30px;
+}
+/*
+.dark {
+  background-image: url("../../../assets/black_piece.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+.light {
+  background-image: url("../../../assets/wood_piece.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 40px;
+}*/
+
+.piece:hover {
+  cursor: grab;
+}
+
+.piece:active {
+  cursor: grabbing;
+}
+
+.text-center {
+  background-color: #3f51b5;
+}

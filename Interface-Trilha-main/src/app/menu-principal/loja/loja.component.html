@@ -1,0 +1,25 @@
+<mat-card class="center-image">
+  <div class="content">
+    <div class="title">Loja</div>
+    <div class="choose-menu">
+      <span class="label">Peça</span>
+      <ul class="list-items">
+        <li *ngFor='let piece of pieces; let i'>
+          <img src="src/assets/wood_piece.png" alt="">
+          <button *ngIf="!piece.userOwns" mat-flat-button class="botao">
+            <span>
+              Já possui
+            </span>
+          </button> 
+          <button *ngIf="!piece.userOwns" (click)="buyPiece(i)"
+          mat-flat-button class="botao">
+            <span >R$ {{piece.value}}
+              <mat-icon>shopping_cart</mat-icon>
+            </span>
+          </button> 
+
+        </li>
+      </ul>
+    </div>
+  </div>
+</mat-card>

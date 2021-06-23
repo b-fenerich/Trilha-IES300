@@ -1,0 +1,12 @@
+<mat-toolbar *ngIf="!(isLoginRouteActivated() || isCadastroRouteActivated())" class="navbar" color="primary">
+
+    <button @fadeState (click)="location.back()" *ngIf="!isHomeRouteActivated()" mat-icon-button matTooltip="Voltar">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div style="margin-left: auto;">
+      <span>Olá, {{user.username}}!   </span>
+      <button  @fadeState (click)="logoutUser()" mat-icon-button matTooltip="Sair">
+        <mat-icon>logout</mat-icon>
+    </button>
+    </div>
+</mat-toolbar>    

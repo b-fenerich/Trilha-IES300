@@ -1,0 +1,41 @@
+<mat-card class="center-image">
+    <div class="content">
+      <div class="title">ESTATÍSTICAS</div>
+      <div class="content-menu">
+        <div class="estatistica-menu">
+          <div class="subtitle">Estatísticas de usuário</div>
+          <div class="stats">
+            <div class="stats-wrap">
+              <div class="stats-number">{{(userStats.wins / userStats.matches) || 0 }}</div>
+              <div class="stats-name">Proporção de vitórias</div>
+            </div>
+            <div class="stats-wrap">
+              <div class="stats-number">{{ userStats.matches }}</div>
+              <div class="stats-name">Partidas jogadas</div>
+            </div>
+            <div class="stats-wrap">
+              <div class="stats-number">{{ userStats.wins }}</div>
+              <div class="stats-name">Partidas ganhas</div>
+            </div>
+            <div class="stats-wrap">
+              <div class="stats-number">{{ userStats.gameTime }}</div>
+              <div class="stats-name">Tempo de jogo</div>
+            </div>
+          </div>
+        </div>
+        <div class="estatistica-menu">
+          <div class="subtitle">Top 100 global</div>
+          <div class="ranking-wrap">
+            <div class="ranking" *ngFor="let ranking of rankings">
+              <div class="ranking-positions">
+                <span class="ranking-position">{{ranking.position}}</span>
+                <span class="ranking-username">{{ranking.username}}</span>
+              </div>
+              <hr class="divider">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+  
